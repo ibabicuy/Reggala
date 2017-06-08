@@ -35,8 +35,6 @@ class S(BaseHTTPRequestHandler):
     def do_GET(self):
         self._set_headers()
         if self.path == "/humidityData":
-            plant=plants.find({"plant_id":1})[0]
-            print plant
             self.wfile.write(plants.find({"plant_id":1})[0]["humidity_data"])
 
         elif self.path == "/getCurrentHumidityValue":
