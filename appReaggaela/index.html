@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Reggaela</title>
+<script type="text/javascript" src="jquery.js"></script>
+</head>
+<body>
+
+<div  class="container" data-role="page" id="principal">
+  <div data-role="header" id="header_div">
+
+    <script>
+      $(document).ready(function(){
+        $(header_div).prepend('<img id="logo" margin-left="auto" margin-right"auto" src="Riega tu planta.png" />');
+        getHumidityValue();
+      })
+
+      function getHumidityValue(){
+        $.ajax({
+          url: 'http://10.252.252.119:3080/getCurrentHumidityValue',
+          type: 'GET',
+          success: function (response) {
+            alert(response);
+            $("#humidity").text(response);
+          },
+          error: function () {
+            alert("error");
+          }
+        });
+      }
+
+    </script>
+
+  <h1 id="subtitulo" align: "center">¡Bienvenido a Reggaela!</h1>
+  </div>
+
+  <div data-role="main" class="ui-content">
+      <div class="ui-field-contain">
+        <label for="value" id="value_label">Valor de humedad actual: </label>
+        <p id="humidity">vhumedad</p>
+        <input type="button" onclick="location.href='configuration.html';" value="Configurar humedad" />
+      </div>
+
+  </div>
+</div>
+
+</body>
+
+<style>
+
+#principal{
+   position: absolute;
+   left: 50%;
+   transform: translate(-50%, 0);
+}
+
+#header_div{
+
+}
+#subtitulo {
+  align: center;
+  font-size: 20px;
+  font-family: "Tahoma";
+}
+
+#value_label{
+  width: 60px;
+  margin-bottom: 10px;
+  font-size: 15px;
+  position: absoute;
+  font-family: "Tahoma";
+}
+
+#value{
+  width: 60px;
+  text-align: right;
+  margin-bottom: 10px;
+  font-size: 15px;
+  position: absoute;
+  font-family: "Tahoma";
+}
+
+#button{
+  left: 50%;
+}
+
+</style>
+</html>

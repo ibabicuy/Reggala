@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Reggaela</title>
+<script type="text/javascript" src="jquery.js"></script>
+</head>
+<body>
+
+<div data-role="page" id="principal">
+  <div data-role="header" id="header_div">
+
+    <script>
+      $(document).ready(function(){
+        $("#button").click(function(){
+          changeHumidityValue();
+        })
+        $(header_div).prepend('<img id="logo" margin-left="auto" margin-right"auto" src="Riega tu planta.png" />');
+
+      })
+
+      function changeHumidityValue(){
+        console.log($("#value").val())
+        $.ajax({
+          url: 'http://10.252.252.119:3080/humidityData',
+          type: 'POST',
+          data: { action: "changeHumidity", value : $("#value").val() ,plant_id:1} ,
+          success: function (response) {
+            alert(response.status);
+            location.href = "index.html";
+          },
+          error: function () {
+            alert("error");
+            location.href = "index.html";
+          }
+        });
+      }
+
+    </script>
+
+  <h1 id="subtitulo" align: "center">Cambia el valor de la constante de humedad</h1>
+  </div>
+
+  <div data-role="main" class="ui-content">
+      <div class="ui-field-contain">
+        <label for="value" id="value_label">Valor: </label>
+        <input type="text" class="form-control" id="value">
+      </div>
+      <button data-inline="true"  id="button" align="center">Submit</button>
+  </div>
+</div>
+
+</body>
+
+<style>
+
+#principal{
+   position: absolute;
+   left: 50%;
+   transform: translate(-50%, 0);
+}
+
+#header_div{
+
+}
+#subtitulo {
+  align: center;
+  font-size: 20px;
+  font-family: "Tahoma";
+}
+
+#value_label{
+  width: 60px;
+  margin-bottom: 10px;
+  font-size: 15px;
+  position: absoute;
+  font-family: "Tahoma";
+}
+
+#value{
+  width: 60px;
+  text-align: right;
+  margin-bottom: 10px;
+  font-size: 15px;
+  position: absoute;
+  font-family: "Tahoma";
+}
+
+#button{
+  left: 50%;
+}
+</style>
+</html>
