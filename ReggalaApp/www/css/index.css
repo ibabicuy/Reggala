@@ -1,0 +1,76 @@
+.toastMsg{
+    font-family: proximanova, Calibri;
+    height:auto;
+    z-index:5;
+    position:absolute;
+    left:50%;
+    bottom:10px;
+    background-color: #383838;
+    color: #F0F0F0;
+    font-size: 15px;
+    padding:10px;
+    text-align:center;
+    border-radius: 10px;
+    -webkit-box-shadow: 0px 0px 24px -1px rgba(56, 56, 56, 1);
+    -moz-box-shadow: 0px 0px 24px -1px rgba(56, 56, 56, 1);
+    box-shadow: 0px 0px 24px -1px rgba(56, 56, 56, 1);
+}
+
+.app{
+
+    font-family: "Comic Sans MS";
+
+}
+
+
+
+#headerImg{
+
+    width:90%;
+    height:auto;
+    left:5%;
+    position:relative;
+}
+
+.inputLabel{
+    font-size: 20px;
+    margin-top:10px;
+    left:5%;
+    position:relative;
+}
+
+#humidityInput{
+    width: 60%;
+    left:20%;
+    position:relative;
+    margin-top:20px;
+    height: 30px;
+    font-size:20px;
+    margin-bottom:10px;
+    border-radius: 5px;
+    border:2px solid #1ba312;
+    outline:none;
+    padding-left:5px;
+    color: green;
+}
+
+.submitBtn{
+
+    width:30%;
+    left:35%;
+    position:relative;
+    height:40px;
+    font-size:24px;
+    margin-top:20px;
+    border-radius: 20px;
+    background-color: #1ba312;
+    color:white;
+    padding-left:10px;
+    padding-right:10px;
+
+}
+
+.submitBtn:active{
+    background-color: #13730d;
+
+}
